@@ -2,191 +2,58 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JS Detallicos</title>
   <style>
-    /* Reset básico */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #fff;
-    }
-
-    header {
-      background: #222;
-      color: white;
-      display: flex;
-      align-items: center;
-      padding: 10px 20px;
-      gap: 15px;
-    }
-
-    header img {
-      height: 50px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-right: 20px;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    nav a:hover, nav a.active {
-      color: #ff6f61;
-    }
-
-    main {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 0 15px;
-    }
-
-    .banner {
-      background: url('banner-placeholder.jpg') center center/cover no-repeat;
-      height: 300px;
-      border-radius: 8px;
-      margin-bottom: 25px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 2rem;
-      font-weight: bold;
-      text-shadow: 0 0 8px rgba(0,0,0,0.7);
-    }
-
-    section {
-      margin-bottom: 40px;
-    }
-
-    h1, h2 {
-      margin-bottom: 15px;
-      color: #222;
-    }
-
-    p {
-      font-size: 1.1rem;
-      line-height: 1.5;
-      color: #555;
-    }
-
-    /* Formulario */
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      max-width: 500px;
-    }
-
-    form label {
-      font-weight: 600;
-      color: #222;
-    }
-
-    form input, form textarea {
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 1rem;
-      resize: vertical;
-    }
-
-    form button {
-      background: #ff6f61;
-      border: none;
-      color: white;
-      padding: 12px;
-      font-size: 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    form button:hover {
-      background: #e65b50;
-    }
-
-    footer {
-      text-align: center;
-      padding: 15px 0;
-      background: #f5f5f5;
-      color: #777;
-      font-size: 0.9rem;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html { height: 100%; font-family: 'Helvetica Neue', sans-serif; background: #fff; color: #222; }
+    .video-intro { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: black; display: flex; align-items: center; justify-content: center; z-index: 1000; }
+    .video-intro video { width: 100%; height: 100%; object-fit: cover; }
+    .main-content { display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; max-width: 800px; margin: 0 auto; }
+    .logo { max-width: 200px; margin-bottom: 2rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 1rem; }
+    p { font-size: 1.1rem; line-height: 1.6; }
   </style>
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="JS Detallicos logo" />
-    <nav>
-      <a href="#inicio" class="active" onclick="showSection('inicio', this)">Inicio</a>
-      <a href="#tienda" onclick="showSection('tienda', this)">Tienda</a>
-      <a href="#contacto" onclick="showSection('contacto', this)">Contacto</a>
-    </nav>
-  </header>
 
-  <main>
-    <section id="inicio" class="section-activa">
-      <div class="banner">JS Detallicos</div>
-      <h1>Pequeños gestos, grandes recuerdos</h1>
-      <p>En JS Detallicos entendemos que los pequeños detalles tienen el poder de transmitir grandes emociones. JS Detallicos nace con el compromiso de crear productos únicos y personalizados que conecten con las personas, cuidando cada pieza desde su diseño hasta su entrega.</p>
-      <p>Nos especializamos en transformar ideas y sentimientos en objetos tangibles, hechos a mano con dedicación, precisión y sensibilidad. Creemos en el valor de lo auténtico, en el impacto de lo artesanal y en la importancia de regalar con intención.</p>
-      <p>Cada creación de JS Detallicos está pensada para convertirse en un recuerdo duradero, en un símbolo de cariño, gratitud o celebración. Trabajamos con materiales de calidad y un proceso centrado en el detalle, porque sabemos que es en los pequeños gestos donde reside la verdadera diferencia.</p>
-      <p>Nuestra misión es sencilla pero poderosa: hacer del detalle un arte, y de cada encargo, una experiencia significativa.</p>
-      <p>Gracias por confiar en nosotros para dar forma a tus emociones.</p>
-    </section>
+  <!-- INTRO VÍDEO -->
+  <div class="video-intro" id="video-intro">
+    <video id="introVideo" autoplay muted playsinline>
+      <source src="intro.mp4" type="video/mp4">
+      Tu navegador no soporta video HTML5.
+    </video>
+  </div>
 
-    <section id="tienda" style="display:none;">
-      <h2>Tienda</h2>
-      <p>Catálogo próximamente.</p>
-    </section>
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="main-content" id="main-content">
+    <img src="logo.png" alt="JS Detallicos logo" class="logo" />
+    <h1>JS Detallicos – Pequeños gestos, grandes recuerdos</h1>
+    <p>
+      En JS Detallicos entendemos que los pequeños detalles tienen el poder de transmitir grandes emociones. <br><br>
+      Nacemos con el compromiso de crear productos únicos y personalizados que conecten con las personas, cuidando cada pieza desde su diseño hasta su entrega. <br><br>
+      Nuestra misión es sencilla pero poderosa: hacer del detalle un arte, y de cada encargo, una experiencia significativa.
+    </p>
 
-    <section id="contacto" style="display:none;">
-      <h2>Contacto / Pedido</h2>
-      <form action="https://formsubmit.co/jsdetallicos@gmail.com" method="POST" target="_blank">
-        <input type="hidden" name="_captcha" value="false" />
-        <label for="nombre">Nombre</label>
-        <input id="nombre" name="Nombre" type="text" required />
-
-        <label for="email">Correo electrónico</label>
-        <input id="email" name="Email" type="email" required />
-
-        <label for="producto">Producto de interés</label>
-        <input id="producto" name="Producto" type="text" placeholder="Especifica el producto que deseas" />
-
-        <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" name="Mensaje" rows="4" placeholder="Cuéntanos tus dudas o indicaciones"></textarea>
-
-        <button type="submit">Enviar Pedido</button>
-      </form>
-    </section>
-  </main>
-
-  <footer>
-    JS Detallicos &copy; 2025 - Todos los derechos reservados.
-  </footer>
+    <!-- 📨 Formulario de contacto -->
+    <form action="/" method="POST" class="contact-form" style="margin-top: 3rem; display: flex; flex-direction: column; gap: 1rem; width: 100%; max-width: 500px;">
+      <h2>Contáctanos</h2>
+      <input type="text" name="name" placeholder="Tu nombre" required style="padding: 0.75rem;" />
+      <input type="email" name="email" placeholder="Tu correo electrónico" required style="padding: 0.75rem;" />
+      <textarea name="message" placeholder="Escribe tu mensaje" rows="5" required style="padding: 0.75rem;"></textarea>
+      <button type="submit" style="padding: 0.75rem; background-color: #000; color: #fff; border: none; cursor: pointer;">Enviar</button>
+    </form>
+  </div>
 
   <script>
-    function showSection(id, link) {
-      document.querySelectorAll('main section').forEach(sec => {
-        sec.style.display = 'none';
-      });
-      document.getElementById(id).style.display = 'block';
-
-      document.querySelectorAll('nav a').forEach(navlink => {
-        navlink.classList.remove('active');
-      });
-      link.classList.add('active');
-    }
+    const video = document.getElementById('introVideo');
+    const intro = document.getElementById('video-intro');
+    const main = document.getElementById('main-content');
+    video.addEventListener('ended', () => {
+      intro.style.display = 'none';
+      main.style.display = 'flex';
+    });
   </script>
+
 </body>
 </html>
